@@ -6,10 +6,15 @@ Random = {
     sum = 0
 }
 
+Random.__index = Random
+
 function Random:new(o)
     o = o or {}
     setmetatable(o, self)
-    self.__index = self
+    o.choices = {}
+    o.probabilities = {}
+    o.csum = {}
+    o.sum = 0
     return o
 end
 
